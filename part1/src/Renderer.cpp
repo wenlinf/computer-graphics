@@ -52,7 +52,7 @@ void Renderer::Render(){
     glEnable(GL_TEXTURE_2D); 
     // This is the background of the screen.
     glViewport(0, 0, m_screenWidth, m_screenHeight);
-    glClearColor( 0.01f, 0.01f, 0.01f, 1.f );
+    glClearColor( 0.529f, 0.808f, 0.922f, 1.f );
     // Clear color buffer and Depth Buffer
     // Remember that the 'depth buffer' is our
     // z-buffer that figures out how far away items are every frame
