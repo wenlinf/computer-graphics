@@ -166,7 +166,7 @@ void SDLGraphicsProgram::Loop(){
                 // Handle mouse movements
                 int mouseX = e.motion.x;
                 int mouseY = e.motion.y;
-//              m_renderer->camera->mouseLook(mouseX, mouseY);
+                m_renderer->GetCamera(0)->MouseLook(mouseX, mouseY);
             }
             switch(e.type){
                 // Handle keyboard presses
@@ -190,17 +190,17 @@ void SDLGraphicsProgram::Loop(){
                         case SDLK_RCTRL:
                             m_renderer->GetCamera(0)->MoveDown(cameraSpeed);
                             break;
-                        case SDLK_s:
-                            randomHeightMap->generateRandomNoiseMap(octaves_specified);
-//    randomHeightMap->generateRandomPPM();
-                            // Create our terrain
-                            Terrain* myTerrain = new Terrain(1024,1024,"noise2.ppm");
-                            // Create a node for our terrain
-                            SceneNode* terrainNode;
-                            terrainNode = new SceneNode(myTerrain);
-                            // Set our SceneTree up
-                            m_renderer->setRoot(terrainNode);
-                            break;
+//                        case SDLK_o:
+//                            octaves_specified++;
+//                            if (octaves_specified > 9) octaves_specified = 1;
+//                            randomHeightMap->generateRandomNoiseMap(octaves_specified);
+//                            // Create our terrain
+//                            myTerrain = new Terrain(1024,1024,"noise2.ppm");
+//                            // Create a node for our terrain
+//                            terrainNode = new SceneNode(myTerrain);
+//                            // Set our SceneTree up
+//                            m_renderer->setRoot(terrainNode);
+//                            break;
                     }
                 break;
             }
