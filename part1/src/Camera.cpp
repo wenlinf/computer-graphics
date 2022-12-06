@@ -5,16 +5,29 @@
 #include <iostream>
 
 void Camera::MouseLook(int mouseX, int mouseY){
-    // Record our new position as a vector
-    glm::vec2 newMousePosition(mouseX, mouseY);
-    // Detect how much the mouse has moved since
-    // the last time
-    glm::vec2 mouseDelta = 0.01f*(newMousePosition-m_oldMousePosition);
-
-    m_viewDirection = glm::mat3(glm::rotate(-mouseDelta.x, m_upVector)) * m_viewDirection;
-    
-    // Update our old position after we have made changes 
-    m_oldMousePosition = newMousePosition;
+    float xOffset = m_oldMousePosition.x - mouseX;
+    float yOffset = m_oldMousePosition.y - mouseY;
+    // set old mouse position
+    m_oldMousePosition.x = mouseX;
+    m_oldMousePosition.y = mouseY;
+    // define sensitivity
+    float sensitivity = 0.3f;
+    xOffset *= sensitivity;
+    yOffset *= sensitivity;
+    // update yaw and pitch
+    yaw += xOffset;
+    pitch += yOffset;
+    // add constraints to camera so it doesn't look up or down more than 90.0f
+    if(pitch > 89.0f)
+        pitch =  89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0f;
+    // update view direction
+    glm::vec3 direction;
+    direction.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direction.y = sin(glm::radians(pitch));
+    direction.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    m_viewDirection = glm::normalize(direction);
 }
 
 // OPTIONAL TODO: 
@@ -23,23 +36,25 @@ void Camera::MouseLook(int mouseX, int mouseY){
 //               Think about how you can do this for a better camera!
 
 void Camera::MoveForward(float speed){
-    m_eyePosition.z -= speed;
+    m_eyePosition += m_viewDirection * speed;
 }
 
 void Camera::MoveBackward(float speed){
-    m_eyePosition.z += speed;
+    m_eyePosition -= m_viewDirection * speed;
 }
 
 void Camera::MoveLeft(float speed){
-    m_eyePosition.x -= speed;
+    glm::vec3 right_vector = glm::normalize(glm::cross(m_viewDirection, m_upVector));
+    m_eyePosition -= right_vector * speed;
 }
 
 void Camera::MoveRight(float speed){
-    m_eyePosition.x += speed;
+    glm::vec3 right_vector = glm::normalize(glm::cross(m_viewDirection, m_upVector));
+    m_eyePosition += right_vector * speed;
 }
 
 void Camera::MoveUp(float speed){
-    m_eyePosition.y += speed;
+    m_eyePosition = m_eyePosition - m_upVector * speed;
 }
 
 void Camera::MoveDown(float speed){

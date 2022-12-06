@@ -54,6 +54,8 @@ private:
     // to 'rock' or 'rattle' the camera you might play
     // with modifying this value.
     glm::vec3 m_upVector;
+    float yaw;
+    float pitch;
 };
 
 
