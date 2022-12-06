@@ -143,7 +143,12 @@ void RandomHeightMap::generateRandomNoiseMap(int octaves) {
     // create an array that is filled with random numbers between 0 and 1
 //    srand ( time(NULL) );
     float* fNoiseSeed2D = new float[imageWidth * imageHeight];
-    std::cout <<"oc" << octaves << std::endl;
+    if (octaves > 9) {
+        octaves = 9;
+    }
+    if (octaves < 1) {
+        octaves = 1;
+    }
     for (int i = 0; i < imageWidth * imageHeight; i++) fNoiseSeed2D[i] = (float)rand() / (float)RAND_MAX;
     noise.PerlinNoise2D(imageWidth, imageHeight, fNoiseSeed2D, octaves, 2.0f, noiseMap);
     generateRandomPPM(noiseMap);
