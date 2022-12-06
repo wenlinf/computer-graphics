@@ -11,13 +11,15 @@
 // Initialization function
 // Returns a true or false value based on successful completion of setup.
 // Takes in dimensions of window.
-SDLGraphicsProgram::SDLGraphicsProgram(int w, int h){
+SDLGraphicsProgram::SDLGraphicsProgram(int w, int h, int octaves){
 	// Initialization flag
 	bool success = true;
 	// String to hold any errors that occur.
 	std::stringstream errorStream;
 	// The window we'll be rendering to
 	m_window = NULL;
+    std::cout << "spe" << octaves_specified << std::endl;
+    octaves_specified = octaves;
 
 	// Initialize SDL
 	if(SDL_Init(SDL_INIT_VIDEO)< 0){
@@ -119,10 +121,10 @@ bool SDLGraphicsProgram::InitGL(){
 void SDLGraphicsProgram::Loop(){
     // TODO: call random height map to generate a random height map, and a random color map
     // TODO: then pass the generated file to the Terrain class to render the terrain
-    randomHeightMap->generateRandomNoiseMap();
+    randomHeightMap->generateRandomNoiseMap(octaves_specified);
 //    randomHeightMap->generateRandomPPM();
     // Create our terrain
-    Terrain* myTerrain = new Terrain(512,512,"noise2.ppm");
+    Terrain* myTerrain = new Terrain(1024,1024,"noise2.ppm");
     // Create a node for our terrain
     SceneNode* terrainNode;
     terrainNode = new SceneNode(myTerrain);
@@ -130,7 +132,7 @@ void SDLGraphicsProgram::Loop(){
     m_renderer->setRoot(terrainNode);
 
     // Set a default position for our camera
-    m_renderer->GetCamera(0)->SetCameraEyePosition(125.0f,50.0f,500.0f);
+    m_renderer->GetCamera(0)->SetCameraEyePosition(150.0f,150.0f,500.0f);
 
     // Main loop flag
     // If this is quit = 'true' then the program terminates.
@@ -189,10 +191,10 @@ void SDLGraphicsProgram::Loop(){
                             m_renderer->GetCamera(0)->MoveDown(cameraSpeed);
                             break;
                         case SDLK_s:
-                            randomHeightMap->generateRandomNoiseMap();
+                            randomHeightMap->generateRandomNoiseMap(octaves_specified);
 //    randomHeightMap->generateRandomPPM();
                             // Create our terrain
-                            Terrain* myTerrain = new Terrain(512,512,"noise2.ppm");
+                            Terrain* myTerrain = new Terrain(1024,1024,"noise2.ppm");
                             // Create a node for our terrain
                             SceneNode* terrainNode;
                             terrainNode = new SceneNode(myTerrain);

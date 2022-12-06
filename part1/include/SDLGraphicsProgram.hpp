@@ -38,7 +38,7 @@ class SDLGraphicsProgram{
 public:
 
     // Constructor
-    SDLGraphicsProgram(int w, int h);
+    SDLGraphicsProgram(int w, int h, int octaves_specified);
     // Destructor
     ~SDLGraphicsProgram();
     // Setup OpenGL
@@ -59,6 +59,7 @@ private:
     // OpenGL context
     SDL_GLContext m_openGLContext;
     RandomHeightMap* randomHeightMap;
+    int octaves_specified;
 };
 
 #endif

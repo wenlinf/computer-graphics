@@ -15,7 +15,7 @@ public:
     RandomHeightMap();
     // RandomHeightMap destructor
     ~RandomHeightMap();
-    void generateRandomNoiseMap();
+    void generateRandomNoiseMap(int octaves);
     void generateRandomPPM(float *noiseMap);
     void generateBiome(float *noiseMap);
 
