@@ -149,6 +149,7 @@ void RandomHeightMap::generateRandomNoiseMap(int octaves) {
     if (octaves < 1) {
         octaves = 1;
     }
+    srand(1);
     for (int i = 0; i < imageWidth * imageHeight; i++) fNoiseSeed2D[i] = (float)rand() / (float)RAND_MAX;
     noise.PerlinNoise2D(imageWidth, imageHeight, fNoiseSeed2D, octaves, 2.0f, noiseMap);
     generateRandomPPM(noiseMap);
@@ -158,7 +159,7 @@ void RandomHeightMap::generateRandomPPM(float *noiseMap) {
     // output noise map to PPM
     std::ofstream ofs;
     ofs.open("./noise2.ppm", std::ios::out | std::ios::binary);
-    ofs << "P6\n" << imageWidth << " " << imageHeight << "\n255\n";
+    ofs << "P3\n" << imageWidth << " " << imageHeight << "\n255\n";
     for (unsigned k = 0; k < imageWidth * imageHeight; ++k) {
 //        unsigned char n = static_cast<unsigned char>(noiseMap[k] * 255);
         int n = (int)(noiseMap[k] * 255);

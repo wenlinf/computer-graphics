@@ -30,7 +30,7 @@ void Renderer::Update(){
     // Then perspective
     // Then the near and far clipping plane.
     // Note I cannot see anything closer than 0.1f units from the screen.
-    m_projectionMatrix = glm::perspective(glm::radians(45.0f),((float)m_screenWidth)/((float)m_screenHeight),0.1f,512.0f);
+    m_projectionMatrix = glm::perspective(glm::radians(45.0f),((float)m_screenWidth)/((float)m_screenHeight),0.1f,1024.0f);
 
     // Perform the update
     if(m_root!=nullptr){
