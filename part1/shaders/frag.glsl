@@ -32,6 +32,7 @@ void main()
     int SUB_SNOW_LEVEL = 85;
     int LIGHT_GREEN_LEVEL = 70;
     int GREEN_LEVEL = 50;
+    int FOREST_GREEN_LEVEL = 45;
     int DARK_GREEN_LEVEL = 40;
     int SOIL_LEVEL = 25;
     int WATER_LEVEL = 10;
@@ -47,7 +48,9 @@ void main()
         diffuseColor = vec3(0.565, 0.933, 0.565);
     } else if (FragPos.y > GREEN_LEVEL && FragPos.y <= LIGHT_GREEN_LEVEL) {
         diffuseColor = vec3(0.196, 0.804, 0.196);
-    } else if (FragPos.y > DARK_GREEN_LEVEL && FragPos.y <= GREEN_LEVEL) {
+    } else if (FragPos.y > FOREST_GREEN_LEVEL && FragPos.y <= GREEN_LEVEL) {
+        diffuseColor = vec3(0.133, 0.545, 0.133);
+    } else if (FragPos.y > DARK_GREEN_LEVEL && FragPos.y <= FOREST_GREEN_LEVEL) {
         diffuseColor = vec3(0.000, 0.392, 0.000);
     } else if (FragPos.y > SOIL_LEVEL && FragPos.y <= DARK_GREEN_LEVEL) {
         diffuseColor = vec3(0.627, 0.322, 0.176);
