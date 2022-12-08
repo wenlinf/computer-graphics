@@ -18,7 +18,6 @@ SDLGraphicsProgram::SDLGraphicsProgram(int w, int h, int octaves){
 	std::stringstream errorStream;
 	// The window we'll be rendering to
 	m_window = NULL;
-    std::cout << "spe" << octaves_specified << std::endl;
     octaves_specified = octaves;
 
 	// Initialize SDL
@@ -36,7 +35,7 @@ SDLGraphicsProgram::SDLGraphicsProgram(int w, int h, int octaves){
 		SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
 		//Create window
-		m_window = SDL_CreateWindow( "Lab",
+		m_window = SDL_CreateWindow( "Terrain",
                                 SDL_WINDOWPOS_UNDEFINED,
                                 SDL_WINDOWPOS_UNDEFINED,
                                 w,
@@ -85,7 +84,7 @@ SDLGraphicsProgram::SDLGraphicsProgram(int w, int h, int octaves){
     // Setup our Renderer
     m_renderer = new Renderer(w,h);
 
-    // TODO : set up random height map
+    // set up random height map
     randomHeightMap = new RandomHeightMap();
 }
 
@@ -119,12 +118,9 @@ bool SDLGraphicsProgram::InitGL(){
 
 //Loops forever!
 void SDLGraphicsProgram::Loop(){
-    // TODO: call random height map to generate a random height map, and a random color map
-    // TODO: then pass the generated file to the Terrain class to render the terrain
     randomHeightMap->generateRandomNoiseMap(octaves_specified);
-//    randomHeightMap->generateRandomPPM();
     // Create our terrain
-    Terrain* myTerrain = new Terrain(1024,1024,"noise2.ppm");
+    Terrain* myTerrain = new Terrain(1024,1024,"terrain.ppm");
     // Create a node for our terrain
     SceneNode* terrainNode;
     terrainNode = new SceneNode(myTerrain);

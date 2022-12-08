@@ -86,7 +86,7 @@ void RandomHeightMap::generateRandomNoiseMap(int octaves) {
 void RandomHeightMap::generateRandomPPM(float *noiseMap) {
     // output noise map to PPM
     std::ofstream ofs;
-    ofs.open("./noise2.ppm", std::ios::out | std::ios::binary);
+    ofs.open("./terrain.ppm", std::ios::out | std::ios::binary);
     ofs << "P3\n" << imageWidth << " " << imageHeight << "\n255\n";
     for (unsigned k = 0; k < imageWidth * imageHeight; ++k) {
         int n = (int)(noiseMap[k] * 255);
