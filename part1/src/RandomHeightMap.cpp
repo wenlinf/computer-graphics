@@ -74,8 +74,8 @@ void RandomHeightMap::generateRandomNoiseMap(int octaves) {
     if (octaves > 9) {
         octaves = 9;
     }
-    if (octaves < 1) {
-        octaves = 1;
+    if (octaves < 3) {
+        octaves = 3;
     }
     srand(1);
     for (int i = 0; i < imageWidth * imageHeight; i++) fNoiseSeed2D[i] = (float)rand() / (float)RAND_MAX;

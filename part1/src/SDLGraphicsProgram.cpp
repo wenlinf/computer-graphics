@@ -192,7 +192,7 @@ void SDLGraphicsProgram::Loop(){
                             break;
                         case SDLK_o:
                             octaves_specified++;
-                            if (octaves_specified > 9) octaves_specified = 1;
+                            if (octaves_specified > 9) octaves_specified = 3;
                             randomHeightMap->generateRandomNoiseMap(octaves_specified);
                             // Create our terrain
                             myTerrain = new Terrain(1024,1024,"noise2.ppm");
