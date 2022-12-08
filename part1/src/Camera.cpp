@@ -54,11 +54,11 @@ void Camera::MoveRight(float speed){
 }
 
 void Camera::MoveUp(float speed){
-    m_eyePosition = m_eyePosition - m_upVector * speed;
+    m_eyePosition = m_eyePosition + m_upVector * speed;
 }
 
 void Camera::MoveDown(float speed){
-    m_eyePosition.y -= speed;
+    m_eyePosition = m_eyePosition - m_upVector * speed;
 }
 
 // Set the position for the camera
