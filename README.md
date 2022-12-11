@@ -1,10 +1,11 @@
 *TODO*: Please edit the following information in your final project
 
-## Title: Edit this line -- Put your 'title' of your project here
+## Title: Procedural Terrain Generation
 
 ## YouTube/Dropbox/Drive Link: Edit this line -- Put your link to your video(Preferably on YouTube) here (see deliverables).
 
 ## Edit this line: Put a few screenshots of your project here (see deliverables).
+<img width="1273" alt="Screen Shot 2022-12-11 at 10 58 33 AM" src="https://user-images.githubusercontent.com/42773608/206914203-f3fb4f9c-049e-4209-a178-99ef7a26075d.png">
 
 
 * Name and partners name(At most teams of 2 folks total)
