@@ -2,7 +2,7 @@
 
 ## Title: Procedural Terrain Generation
 
-## YouTube/Dropbox/Drive Link: https://drive.google.com/file/d/1jRdFLeeQ9czv5jRnQw5YBERJLb5hWyby/view?usp=sharing
+## YouTube/Dropbox/Drive Link: https://www.youtube.com/watch?v=XBfumlxLRew
 
 ## Edit this line: Put a few screenshots of your project here (see deliverables).
 <img width="1273" alt="Screen Shot 2022-12-11 at 10 58 33 AM" src="https://user-images.githubusercontent.com/42773608/206914203-f3fb4f9c-049e-4209-a178-99ef7a26075d.png">
