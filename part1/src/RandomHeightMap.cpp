@@ -1,5 +1,4 @@
 #include "RandomHeightMap.hpp"
-#include "perlin.h"
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -20,7 +19,6 @@ class PerlinNoise
 public:
     void PerlinNoise2D(int nWidth, int nHeight, float *fSeed, int nOctaves, float fBias, float *fOutput)
     {
-        // Used 1D Perlin Noise
         for (int x = 0; x < nWidth; x++)
             for (int y = 0; y < nHeight; y++)
             {
