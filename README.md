@@ -1,5 +1,21 @@
 
 ## Procedural Terrain Generation
+### Overview:
+For this procedural terrain generation project, I used a perlin noise like function to generate a random height map. Then in the shader file, based on the different numbers (representing heights), the program assigns a color to that pixel. For example, if the number at a pixel is greater than a certain threshold, then the program will color it white, so that it looks like snow on top of a mountain. Or if the number is smaller, it will be colored green so it looks like part of the mountain. 
+
+
+### To run this program:
+* First pull this project to your local machine.
+* Then run: 
+ * `cd part1`
+ * `python3 build.py`
+ * `./project`
+* After running these three commands, you will see the project window.
+
+### To interact with this program:
+* You can press the 'o' key to make the terrain more detailed. However, there is a limit to how detailed it will look, so after exceeding that limit, the terrain will be set to the least detailed version. 
+* You can move your mouse to look around as if you are actually standing on the terrain.
+* You can use the arrow keys to move to the left, to the right, to the front, and back as if you are walking on the terrain.
 
 ### See the demo: https://www.youtube.com/watch?v=XBfumlxLRew
 
